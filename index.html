@@ -7,31 +7,31 @@
     <meta name="keywords" content="Tc Coin, blockchain, decentralized, Troanary, PWA">
     <meta property="og:title" content="Tc Coin Blockchain">
     <meta property="og:description" content="Earn Tc Coins through time, trust, and sharing in a decentralized blockchain app.">
-    <meta property="og:image" content="https://webswiftseo.github.io/Tc-Coin/images/coin-tc-blockchain-512x512.webp">
-    <meta property="og:url" content="https://webswiftseo.github.io/Tc-Coin/">
+    <meta property="og:image" content="https://webswiftseo.github.io/tc-coin/images/coin-tc-blockchain-512x512.webp">
+    <meta property="og:url" content="https://webswiftseo.github.io/tc-coin/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tc Coin Blockchain">
     <meta name="twitter:description" content="Earn Tc Coins through time, trust, and sharing in a decentralized blockchain app.">
-    <meta name="twitter:image" content="https://webswiftseo.github.io/Tc-Coin/images/coin-tc-blockchain-512x512.webp">
+    <meta name="twitter:image" content="https://webswiftseo.github.io/tc-coin/images/coin-tc-blockchain-512x512.webp">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Tc Coin Blockchain",
         "description": "A decentralized blockchain app based on Troanary principles.",
-        "url": "https://webswiftseo.github.io/Tc-Coin/"
+        "url": "https://webswiftseo.github.io/tc-coin/"
     }
     </script>
-    <link rel="manifest" href="/Tc-Coin/manifest.json">
+    <link rel="manifest" href="/tc-coin/manifest.json">
     <title>Tc Coin Blockchain</title>
     <style>
         body { margin: 0; font-family: Arial, sans-serif; background-color: #000; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; }
-        .button { display: inline-flex; align-items: center; justify-content: center; background-color: #FFD700; color: #000; border-radius: 20px; padding: 15px 30px; margin: 10px 0; font-size: 1.2rem; font-weight: bold; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); transition: transform 0.2s, box-shadow 0.2s; width: 250px; }
+        .button { display: inline-flex; align-items: center; justify-content: center; background-color: #FFD700; color: #000; border-radius: 20px; padding: 15px 30px; margin: 10px 0; font-size: 1.2rem; font-weight: bold; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); transition: transform 0.2s, box-shadow 0.2s; width: 250px; cursor: pointer; }
         .button:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7); }
         .top-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
         .wheel { width: 300px; height: 300px; margin: 20px 0; border-radius: 50%; background: conic-gradient(#00FFFF, #FFFF00, #00FFFF); transition: transform 3s ease-out; }
         .footer { position: fixed; bottom: 10px; left: 0; width: 100%; display: flex; justify-content: space-evenly; background-color: #111; padding: 10px 0; border-top: 2px solid #0ff; }
-        .footer-button { background-color: #FFD700; color: #000; border-radius: 15px; padding: 10px 20px; font-size: 1rem; font-weight: bold; text-align: center; box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); transition: transform 0.2s, box-shadow 0.2s; }
+        .footer-button { background-color: #FFD700; color: #000; border-radius: 15px; padding: 10px 20px; font-size: 1rem; font-weight: bold; text-align: center; box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
         .footer-button:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7); }
         .coming-soon { opacity: 0.5; }
         .modal { display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.8); }
@@ -42,13 +42,13 @@
         textarea.input { resize: vertical; min-height: 100px; }
         .list { list-style: none; padding: 1rem; background: #1a1a1a; border-radius: 16px; margin-top: 1rem; max-height: 200px; overflow-y: auto; }
         .list li { padding: 0.5rem; border-bottom: 1px solid #00ffff; }
-        .qr-code { margin: 1rem auto; width: 200px; height: 200px; background: url('/Tc-Coin/images/qr-bg-tc-blockchain-300x300.webp') center/cover; display: flex; justify-content: center; align-items: center; border-radius: 16px; }
+        .qr-code { margin: 1rem auto; width: 200px; height: 200px; background: url('/tc-coin/images/qr-bg-tc-blockchain-300x300.webp') center/cover; display: flex; justify-content: center; align-items: center; border-radius: 16px; }
     </style>
 </head>
 <body>
 
     <div class="top-buttons">
-        <button class="button" onclick="installPWA()">📲 Install</button>
+        <button class="button" id="installBtn">📲 Install</button>
         <button class="button" onclick="shareApp()">🚀 Share</button>
     </div>
 
@@ -126,259 +126,6 @@
         </div>
     </div>
 
-    <script>
-        let deferredPrompt;
-        const dbName = 'TcCoinBlockchainDB';
-        let db;
-        let tcBalance = 0;
-        let trustLevel = 0;
-        let username = '';
-        let blocks = [];
-        let messages = [];
-        let users = JSON.parse(localStorage.getItem('users')) || [];
-        const timeRewardInterval = 60000; // 1 minute
-
-        // IndexedDB Setup
-        const request = indexedDB.open(dbName, 1);
-        request.onupgradeneeded = (e) => {
-            db = e.target.result;
-            db.createObjectStore('blocks', { keyPath: 'index' });
-            db.createObjectStore('messages', { keyPath: 'id', autoIncrement: true });
-        };
-        request.onsuccess = (e) => {
-            db = e.target.result;
-            loadData();
-        };
-        request.onerror = (e) => console.error('IndexedDB error:', e);
-
-        // Load Data
-        function loadData() {
-            const tx = db.transaction(['blocks', 'messages'], 'readonly');
-            const blockStore = tx.objectStore('blocks');
-            const messageStore = tx.objectStore('messages');
-            blockStore.getAll().onsuccess = (e) => {
-                blocks = e.target.result;
-                updateFeed();
-            };
-            messageStore.getAll().onsuccess = (e) => {
-                messages = e.target.result;
-                updateMessages();
-            };
-            tcBalance = parseInt(localStorage.getItem('tcBalance')) || 0;
-            trustLevel = parseInt(localStorage.getItem('trustLevel')) || 0;
-            username = localStorage.getItem('username') || '';
-            document.getElementById('tcBalance').textContent = `Tc Balance: ${tcBalance}`;
-            document.getElementById('trustLevel').textContent = `Trust Level: ${trustLevel}`;
-            document.getElementById('usernameDisplay').textContent = username || 'Set your username';
-        }
-
-        // PWA Setup
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            document.querySelector('.top-buttons button:first-child').style.display = 'inline-flex';
-        });
-        window.addEventListener('appinstalled', () => {
-            document.querySelector('.top-buttons button:first-child').style.display = 'none';
-        });
-        function installPWA() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then(() => {
-                    document.querySelector('.top-buttons button:first-child').style.display = 'none';
-                });
-            } else alert('Install not available');
-        }
-
-        // Modal Navigation
-        function closeAllModals() {
-            document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
-        }
-        function openProfile() {
-            closeAllModals();
-            document.getElementById('profileModal').style.display = 'block';
-        }
-        function closeProfileModal() {
-            document.getElementById('profileModal').style.display = 'none';
-        }
-        function openFeed() {
-            closeAllModals();
-            document.getElementById('feedModal').style.display = 'block';
-            updateLeaderboard();
-        }
-        function closeFeedModal() {
-            document.getElementById('feedModal').style.display = 'none';
-        }
-        function openGroups() {
-            closeAllModals();
-            document.getElementById('groupsModal').style.display = 'block';
-            updateMessages();
-        }
-        function closeGroupsModal() {
-            document.getElementById('groupsModal').style.display = 'none';
-        }
-        function showInfoModal() {
-            closeAllModals();
-            document.getElementById('infoModal').style.display = 'block';
-        }
-        function closeInfoModal() {
-            document.getElementById('infoModal').style.display = 'none';
-        }
-        window.onclick = function(event) {
-            document.querySelectorAll('.modal').forEach(modal => {
-                if (event.target === modal) modal.style.display = 'none';
-            });
-        };
-
-        // Blockchain Logic
-        function createBlock(action, amount, trust = trustLevel, data = {}) {
-            const index = blocks.length;
-            const timestamp = new Date().toISOString();
-            const previousHash = index > 0 ? blocks[index - 1].hash : '0';
-            const blockData = { index, timestamp, action, amount, trustLevel: trust, previousHash, data };
-            blockData.hash = calculateHash(blockData);
-            blockData.signature = 'mock-signature-' + index;
-            blocks.push(blockData);
-            const tx = db.transaction('blocks', 'readwrite');
-            tx.objectStore('blocks').put(blockData);
-            updateFeed();
-            return blockData;
-        }
-
-        function calculateHash(block) {
-            return btoa(JSON.stringify(block)).substring(0, 16);
-        }
-
-        function earnTc(amount, action) {
-            createBlock(action, amount, trustLevel + 1);
-            tcBalance += amount;
-            trustLevel = Math.min(10, trustLevel + 1);
-            localStorage.setItem('tcBalance', tcBalance);
-            localStorage.setItem('trustLevel', trustLevel);
-            document.getElementById('tcBalance').textContent = `Tc Balance: ${tcBalance}`;
-            document.getElementById('trustLevel').textContent = `Trust Level: ${trustLevel}`;
-            alert(`Earned ${amount} Tc for ${action}! Trust Level: ${trustLevel}`);
-        }
-
-        // Troanary Spin Wheel
-        function spinForTc() {
-            const wheel = document.getElementById('spinWheel');
-            const spinDegrees = Math.floor(Math.random() * 360) + 720;
-            wheel.style.transform = `rotate(${spinDegrees}deg)`;
-            const reward = Math.floor(Math.random() * 20) + 1;
-            setTimeout(() => earnTc(reward, 'spin'), 3000);
-        }
-
-        // Time-Based Rewards
-        setInterval(() => {
-            if (document.visibilityState === 'visible') {
-                earnTc(1, 'time');
-            }
-        }, timeRewardInterval);
-
-        // Wallet & Transactions
-        function setUsername() {
-            const newUsername = document.getElementById('usernameInput').value.trim();
-            if (newUsername) {
-                username = newUsername;
-                localStorage.setItem('username', username);
-                document.getElementById('usernameDisplay').textContent = username;
-                users = users.filter(u => u !== username);
-                users.push(username);
-                localStorage.setItem('users', JSON.stringify(users));
-            }
-        }
-
-        function sendTc() {
-            const amount = parseInt(prompt('Enter amount to send:'));
-            const toUser = prompt('Enter username to send to:'));
-            if (amount && amount <= tcBalance && toUser && users.includes(toUser)) {
-                tcBalance -= amount;
-                createBlock('send', -amount, trustLevel, { to: toUser });
-                localStorage.setItem('tcBalance', tcBalance);
-                document.getElementById('tcBalance').textContent = `Tc Balance: ${tcBalance}`;
-                alert(`Sent ${amount} Tc to ${toUser}!`);
-            } else alert('Invalid amount, username, or insufficient balance');
-        }
-
-        function receiveTc() {
-            const amount = Math.floor(Math.random() * 10) + 1;
-            earnTc(amount, 'receive');
-        }
-
-        function generateQR() {
-            const qrCode = document.getElementById('qrCode');
-            qrCode.innerHTML = '';
-            const qrData = JSON.stringify({ username, balance: tcBalance });
-            const canvas = document.createElement('canvas');
-            qrCode.appendChild(canvas);
-            const ctx = canvas.getContext('2d');
-            canvas.width = 200;
-            canvas.height = 200;
-            ctx.fillStyle = '#fff';
-            for (let i = 0; i < 20; i++) {
-                for (let j = 0; j < 20; j++) {
-                    if (Math.random() > 0.5) {
-                        ctx.fillRect(i * 10, j * 10, 8, 8);
-                    }
-                }
-            }
-        }
-
-        function bluetoothSync() {
-            alert('Bluetooth sync coming soon! For now, use QR codes or username search.');
-        }
-
-        // Feed & Leaderboard
-        function updateFeed() {
-            const feed = document.getElementById('feedContent');
-            feed.innerHTML = blocks.map(b => `<p>${b.timestamp}: ${b.action} ${b.amount} Tc (Trust: ${b.trustLevel})</p>`).join('');
-        }
-
-        function updateLeaderboard() {
-            const leaderboard = document.getElementById('leaderboard');
-            leaderboard.innerHTML = users.map(u => `<li>${u}: Trust Level ${trustLevel}</li>`).join('');
-        }
-
-        // Groups & Messages
-        function searchUser() {
-            const query = document.getElementById('searchUser').value.trim();
-            if (query && users.includes(query)) {
-                alert(`Found user: ${query}`);
-            } else alert('User not found');
-        }
-
-        function postMessage() {
-            const message = document.getElementById('groupMessage').value.trim();
-            if (message) {
-                const msg = { text: message, timestamp: new Date().toISOString(), sender: username };
-                messages.push(msg);
-                const tx = db.transaction('messages', 'readwrite');
-                tx.objectStore('messages').add(msg);
-                document.getElementById('groupMessage').value = '';
-                updateMessages();
-            }
-        }
-
-        function updateMessages() {
-            const groupList = document.getElementById('groupList');
-            groupList.innerHTML = messages.map(m => `<li>${m.timestamp} - ${m.sender}: ${m.text}</li>`).join('');
-        }
-
-        // Sharing
-        function shareApp() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Tc Coin Blockchain',
-                    text: 'Join me on Tc Coin Blockchain! Earn Tc through time and trust.',
-                    url: window.location.href
-                }).then(() => earnTc(5, 'share')).catch(() => alert('Share failed'));
-            } else navigator.clipboard.writeText(window.location.href).then(() => earnTc(5, 'share'));
-        }
-
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/Tc-Coin/service-worker.js');
-        }
-    </script>
+    <script src="/tc-coin/app.js"></script>
 </body>
 </html>
