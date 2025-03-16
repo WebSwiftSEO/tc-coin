@@ -1,0 +1,12 @@
+{
+    "name": "Tc Coin Blockchain",
+    "short_name": "Tc Coin",
+    "start_url": "/Tc-Coin-Blockchain/",
+    "display": "standalone",
+    "background_color": "#000",
+    "theme_color": "#00ffff",
+    "icons": [
+        { "src": "/Tc-Coin-Blockchain/images/coin.webp", "sizes": "192x192", "type": "image/webp" },
+        { "src": "/Tc-Coin-Blockchain/images/coin.webp", "sizes": "512x512", "type": "image/webp" }
+    ]
+}
