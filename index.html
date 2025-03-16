@@ -7,74 +7,65 @@
     <meta name="keywords" content="Tc Coin, blockchain, decentralized, PWA, Troanary">
     <meta property="og:title" content="Tc Coin Blockchain">
     <meta property="og:description" content="Earn Tc Coins through time, trust, and sharing with this decentralized blockchain app.">
-    <meta property="og:image" content="https://webswiftseo.github.io/Tc-Coin-Blockchain/images/coin.webp">
+    <meta property="og:image" content="https://webswiftseo.github.io/Tc-Coin-Blockchain/images/coin-tc-blockchain-512x512.webp">
     <meta property="og:url" content="https://webswiftseo.github.io/Tc-Coin-Blockchain/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tc Coin Blockchain">
     <meta name="twitter:description" content="Earn Tc Coins through time, trust, and sharing with this decentralized blockchain app.">
-    <meta name="twitter:image" content="https://webswiftseo.github.io/Tc-Coin-Blockchain/images/coin.webp">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Tc Coin Blockchain",
-        "description": "A decentralized blockchain app based on Troanary principles.",
-        "url": "https://webswiftseo.github.io/Tc-Coin-Blockchain/"
-    }
-    </script>
-    <link rel="manifest" href="/Tc-Coin-Blockchain/manifest.json">
+    <meta name="twitter:image" content="https://webswiftseo.github.io/Tc-Coin-Blockchain/images/coin-tc-blockchain-512x512.webp">
+    <link rel="manifest" href="./manifest.json">
     <title>Tc Coin Blockchain</title>
-    <link rel="stylesheet" href="/Tc-Coin-Blockchain/styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <header>
-        <h1>Tc Coin Blockchain <span class="tc-logo">Tc</span></h1>
-        <button id="installBtn" class="header-btn" aria-label="Install App">📲 Install</button>
+        <h1><span class="tc-logo">Tc</span> Coin Blockchain</h1>
+        <button id="installBtn" class="header-btn">📲 Install</button>
     </header>
 
     <main>
-        <section class="landing">
+        <section class="landing fade-in">
             <h2>Welcome to Tc Coin Blockchain</h2>
             <p>Earn Tc Coins through time, trust, and sharing in a decentralized network.</p>
             <div class="cta-buttons">
-                <button onclick="showProfile()" class="btn" aria-label="Go to Profile">❤️ Profile</button>
-                <button onclick="shareApp()" class="btn" aria-label="Share App">📤 Share (+Tc)</button>
+                <button onclick="showProfile()" class="btn">❤️ Profile</button>
+                <button onclick="shareApp()" class="btn">📤 Share (+Tc)</button>
             </div>
             <div class="troanary-wheel">
                 <div id="wheel" class="wheel"></div>
-                <button onclick="spinWheel()" class="btn spin-btn" aria-label="Spin for Rewards">🎡 Spin for Tc</button>
+                <button onclick="spinWheel()" class="btn spin-btn">🎡 Spin for Tc</button>
             </div>
         </section>
 
-        <section class="profile hidden" id="profileSection">
+        <section class="profile hidden fade-in" id="profileSection">
             <h2>Profile & Wallet</h2>
             <p id="tcBalance">Tc Balance: 0</p>
             <div class="profile-actions">
-                <button onclick="sendTc()" class="btn" aria-label="Send Tc">🚀 Send Tc</button>
-                <button onclick="receiveTc()" class="btn" aria-label="Receive Tc">📥 Receive Tc</button>
+                <button onclick="sendTc()" class="btn">🚀 Send Tc</button>
+                <button onclick="receiveTc()" class="btn">📥 Receive Tc</button>
             </div>
             <div class="coin-3d">
                 <div id="coin"></div>
             </div>
             <div class="chat-section">
-                <input type="text" id="chatInput" placeholder="Type message..." aria-label="Chat Input">
-                <button onclick="sendMessage()" class="btn" aria-label="Send Message">💬 Send</button>
+                <input type="text" id="chatInput" placeholder="Type message...">
+                <button onclick="sendMessage()" class="btn">💬 Send</button>
                 <ul id="chatLog"></ul>
             </div>
         </section>
 
-        <section class="feed hidden" id="feedSection">
+        <section class="feed hidden fade-in" id="feedSection">
             <h2>Main Feed</h2>
             <div class="feed-content" id="feedContent">
                 <p>Recent transactions and posts will appear here.</p>
             </div>
         </section>
 
-        <section class="groups hidden" id="groupsSection">
+        <section class="groups hidden fade-in" id="groupsSection">
             <h2>Groups</h2>
             <div class="group-actions">
-                <button onclick="searchGroups()" class="btn" aria-label="Search Groups">🔎🏘️ Search</button>
-                <button onclick="createGroup()" class="btn" aria-label="Create Group">➕🏘️ Create</button>
+                <button onclick="searchGroups()" class="btn">🔎🏘️ Search</button>
+                <button onclick="createGroup()" class="btn">➕🏘️ Create</button>
             </div>
             <ul id="groupList"></ul>
         </section>
@@ -86,6 +77,6 @@
         </div>
     </footer>
 
-    <script src="/Tc-Coin-Blockchain/app.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>
