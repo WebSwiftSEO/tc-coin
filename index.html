@@ -1,180 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tc Coin Blockchain - Decentralized Hybrid Blockchain PWA">
-    <meta name="keywords" content="Tc Coin, blockchain, decentralized, Troanary, PWA">
-    <meta property="og:title" content="Tc Coin Blockchain">
-    <meta property="og:description" content="Earn Tc Coins through time, trust, and sharing in a decentralized blockchain app.">
-    <meta property="og:image" content="https://webswiftseo.github.io/tc-coin/images/coin-tc-blockchain-512x512.webp">
-    <meta property="og:url" content="https://webswiftseo.github.io/tc-coin/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tc Coin Blockchain">
-    <meta name="twitter:description" content="Earn Tc Coins through time, trust, and sharing in a decentralized blockchain app.">
-    <meta name="twitter:image" content="https://webswiftseo.github.io/tc-coin/images/coin-tc-blockchain-512x512.webp">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Tc Coin Blockchain",
-        "description": "A decentralized blockchain app based on Troanary principles.",
-        "url": "https://webswiftseo.github.io/tc-coin/"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tc Coin Blockchain - Decentralized Hybrid Blockchain PWA" />
+  <meta name="keywords" content="Tc Coin, blockchain, decentralized, Troanary, PWA" />
+  <meta property="og:title" content="Tc Coin Blockchain" />
+  <meta property="og:description" content="Earn Tc Coins through time, trust, and sharing in a decentralized blockchain app." />
+  <meta property="og:image" content="https://webswiftseo.github.io/tc-coin/images/coin-tc-blockchain-512x512.webp" />
+  <meta property="og:url" content="https://webswiftseo.github.io/tc-coin/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tc Coin Blockchain" />
+  <meta name="twitter:description" content="Earn Tc Coins through time, trust, and sharing in a decentralized blockchain app." />
+  <meta name="twitter:image" content="https://webswiftseo.github.io/tc-coin/images/coin-tc-blockchain-512x512.webp" />
+
+  <link rel="manifest" href="/tc-coin/manifest.json" />
+  <title>Tc Coin Blockchain</title>
+
+  <style>
+    /* === Base Styles === */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 0 1rem;
     }
-    </script>
-    <link rel="manifest" href="/tc-coin/manifest.json">
-    <title>Tc Coin Blockchain</title>
-    <style>
-        body { margin: 0; font-family: Arial, sans-serif; background-color: #000; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; }
-        .button { display: inline-flex; align-items: center; justify-content: center; background-color: #FFD700; color: #000; border-radius: 20px; padding: 15px 30px; margin: 10px 0; font-size: 1.2rem; font-weight: bold; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); transition: transform 0.2s, box-shadow 0.2s; width: 250px; cursor: pointer; }
-        .button:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7); }
-        .top-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-        .wheel { width: 300px; height: 300px; margin: 20px 0; border-radius: 50%; background: conic-gradient(#00FFFF, #FFFF00, #00FFFF); transition: transform 3s ease-out; }
-        .footer { position: fixed; bottom: 10px; left: 0; width: 100%; display: flex; justify-content: space-evenly; background-color: #111; padding: 10px 0; border-top: 2px solid #0ff; }
-        .footer-button { background-color: #FFD700; color: #000; border-radius: 15px; padding: 10px 20px; font-size: 1rem; font-weight: bold; text-align: center; box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-        .footer-button:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7); }
-        .coming-soon { opacity: 0.5; }
-        .modal { display: none; position: fixed; z-index: 10; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.8); }
-        .modal-content { background-color: #111; color: #fff; margin: 5% auto; padding: 20px; border: 2px solid #FFD700; border-radius: 20px; width: 90%; max-width: 500px; text-align: center; max-height: 80vh; overflow-y: auto; }
-        .close { color: #FFD700; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .close:hover { color: #ff0; }
-        .input { padding: 0.5rem; border-radius: 16px; border: 1px solid #00ffff; background: #1a1a1a; color: #fff; width: 100%; max-width: 300px; margin: 0.5rem 0; }
-        textarea.input { resize: vertical; min-height: 100px; }
-        .list { list-style: none; padding: 1rem; background: #1a1a1a; border-radius: 16px; margin-top: 1rem; max-height: 200px; overflow-y: auto; }
-        .list li { padding: 0.5rem; border-bottom: 1px solid #00ffff; }
-        .qr-code { margin: 1rem auto; width: 200px; height: 200px; background: url('/tc-coin/images/qr-bg-tc-blockchain-300x300.webp') center/cover; display: flex; justify-content: center; align-items: center; border-radius: 16px; }
-    </style>
+
+    /* === Buttons === */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffd700;
+      color: #000;
+      border-radius: 20px;
+      padding: 15px 30px;
+      margin: 10px 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: 90%;
+      max-width: 300px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7);
+    }
+
+    .top-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    /* === Wheel === */
+    .wheel {
+      width: 80vw;
+      max-width: 300px;
+      height: 80vw;
+      max-height: 300px;
+      margin: 20px 0;
+      border-radius: 50%;
+      background: conic-gradient(#00ffff, #ffff00, #00ffff);
+      transition: transform 3s ease-out;
+    }
+
+    /* === Footer Nav === */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      background-color: #111;
+      padding: 10px 0;
+      border-top: 2px solid #0ff;
+      z-index: 99;
+    }
+
+    .footer-button {
+      background-color: #ffd700;
+      color: #000;
+      border-radius: 15px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .footer-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7);
+    }
+
+    /* === Modal === */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      background-color: #111;
+      color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 2px solid #ffd700;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .close {
+      color: #ffd700;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ff0;
+    }
+
+    /* === Inputs === */
+    .input {
+      padding: 0.5rem;
+      border-radius: 16px;
+      border: 1px solid #00ffff;
+      background: #1a1a1a;
+      color: #fff;
+      width: 100%;
+      max-width: 300px;
+      margin: 0.5rem 0;
+    }
+
+    textarea.input {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .list {
+      list-style: none;
+      padding: 1rem;
+      background: #1a1a1a;
+      border-radius: 16px;
+      margin-top: 1rem;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .list li {
+      padding: 0.5rem;
+      border-bottom: 1px solid #00ffff;
+    }
+
+    .qr-code {
+      margin: 1rem auto;
+      width: 200px;
+      height: 200px;
+      background: url('/tc-coin/images/qr-bg-tc-blockchain-300x300.webp') center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .button {
+        width: 250px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="top-buttons">
-        <button class="button" id="installBtn">📲 Install</button>
-        <button class="button" onclick="shareApp()">🚀 Share</button>
+  <div class="top-buttons">
+    <button class="button" id="installBtn" onclick="showInstallInstructions()">📲 Install</button>
+    <button class="button" onclick="shareApp()">🚀 Share</button>
+  </div>
+
+  <div class="wheel" id="spinWheel"></div>
+
+  <button class="button" onclick="spinForTc()">🎰 Spin for Tc</button>
+  <button class="button" onclick="openProfile()">❤️ Profile</button>
+  <button class="button" onclick="openFeed()">📜 Feed</button>
+  <button class="button" onclick="openGroups()">🏘️ Groups</button>
+  <button class="button" onclick="showInfoModal()">ℹ️ Info</button>
+
+  <div style="height: 100px;"></div>
+
+  <div class="footer">
+    <div class="footer-button" onclick="closeAllModals()">🏡</div>
+    <div class="footer-button" onclick="openProfile()">❤️</div>
+    <div class="footer-button" onclick="openFeed()">📜</div>
+    <div class="footer-button" onclick="openGroups()">🏘️</div>
+    <div class="footer-button coming-soon" onclick="alert('Search coming soon!')">🔎</div>
+  </div>
+
+  <!-- Install Modal -->
+  <div id="installModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeInstallModal()">×</span>
+      <h2>📲 Install Tc Coin PWA</h2>
+      <p><strong>Android (Chrome):</strong><br> Tap the menu ⋮ button (top-right), then tap "Add to Home screen".</p>
+      <p><strong>iPhone (Safari only):</strong><br> Tap the Share icon (square with ↑), scroll down, then tap "Add to Home Screen".</p>
+      <p>⚠️ Installation doesn't work inside social network browsers (like Facebook, Instagram, etc.). Open this page in Safari or Chrome for best results!</p>
     </div>
+  </div>
 
-    <div class="wheel" id="spinWheel"></div>
-
-    <button class="button" onclick="spinForTc()">🎰 Spin for Tc</button>
-    <button class="button" onclick="openProfile()">❤️ Profile</button>
-    <button class="button" onclick="openFeed()">📜 Feed</button>
-    <button class="button" onclick="openGroups()">🏘️ Groups</button>
-    <button class="button" onclick="showInfoModal()">ℹ️ Info</button>
-
-    <div style="height: 100px;"></div>
-
-    <div class="footer">
-        <div class="footer-button" onclick="closeAllModals()">🏡</div>
-        <div class="footer-button" onclick="openProfile()">❤️</div>
-        <div class="footer-button" onclick="openFeed()">📜</div>
-        <div class="footer-button" onclick="openGroups()">🏘️</div>
-        <div class="footer-button coming-soon" onclick="alert('Search coming soon!')">🔎</div>
+  <!-- Profile Modal -->
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfileModal()">×</span>
+      <h2>Profile & Wallet</h2>
+      <p><strong>Username:</strong> <span id="usernameDisplay">Set your username</span></p>
+      <input type="text" id="usernameInput" class="input" placeholder="Set your username" aria-label="Set Username" />
+      <button class="button" onclick="setUsername()">💾 Save</button>
+      <p id="tcBalance">Tc Balance: 0</p>
+      <p id="trustLevel">Trust Level: 0</p>
+      <div class="profile-actions">
+        <button class="button" onclick="sendTc()">🚀 Send Tc</button>
+        <button class="button" onclick="receiveTc()">📥 Receive Tc</button>
+        <button class="button" onclick="generateQR()">📷 QR Code</button>
+        <button class="button" onclick="bluetoothSync()">📡 Bluetooth Sync</button>
+      </div>
+      <div class="qr-code" id="qrCode"></div>
     </div>
+  </div>
 
-    <!-- Profile Modal -->
-    <div id="profileModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeProfileModal()">×</span>
-            <h2>Profile & Wallet</h2>
-            <p><strong>Username:</strong> <span id="usernameDisplay">Set your username</span></p>
-            <input type="text" id="usernameInput" class="input" placeholder="Set your username" aria-label="Set Username">
-            <button class="button" onclick="setUsername()">💾 Save</button>
-            <p id="tcBalance">Tc Balance: 0</p>
-            <p id="trustLevel">Trust Level: 0</p>
-            <div class="profile-actions">
-                <button class="button" onclick="sendTc()">🚀 Send Tc</button>
-                <button class="button" onclick="receiveTc()">📥 Receive Tc</button>
-                <button class="button" onclick="generateQR()">📷 QR Code</button>
-                <button class="button" onclick="bluetoothSync()">📡 Bluetooth Sync</button>
-            </div>
-            <div class="qr-code" id="qrCode"></div>
-        </div>
-    </div>
+  <!-- Include Feed, Groups, Info modals from your original code -->
+  <!-- You already had the content correct in those modals. -->
 
-    <!-- Feed Modal -->
-    <div id="feedModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeFeedModal()">×</span>
-            <h2>Transaction Feed & Block Explorer</h2>
-            <div id="feedContent"></div>
-            <h3>Leaderboard (Trust Levels)</h3>
-            <ul id="leaderboard" class="list"></ul>
-        </div>
-    </div>
+  <script>
+    function showInstallInstructions() {
+      document.getElementById('installModal').style.display = 'block';
+    }
 
-    <!-- Groups Modal -->
-    <div id="groupsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeGroupsModal()">×</span>
-            <h2>Groups & Connections</h2>
-            <div class="group-actions">
-                <input type="text" id="searchUser" class="input" placeholder="Search username..." aria-label="Search Username">
-                <button class="button" onclick="searchUser()">🔎 Search</button>
-            </div>
-            <ul id="groupList" class="list"></ul>
-            <textarea id="groupMessage" class="input" placeholder="Post a message..." aria-label="Group Message"></textarea>
-            <button class="button" onclick="postMessage()">📝 Post</button>
-        </div>
-    </div>
+    function closeInstallModal() {
+      document.getElementById('installModal').style.display = 'none';
+    }
 
-    <!-- Info Modal -->
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeInfoModal()">×</span>
-            <div class="modal-content">
-  <h2>🌐 Welcome to Tc Coin Blockchain</h2>
-  <p>
-    The <strong>Tc Coin Blockchain</strong> is a decentralized hybrid blockchain prototype designed to reward users for their <strong>time</strong>, <strong>trust</strong>, and <strong>sharing</strong>. Built on the principles of the <em>Troanary Mirror Thesis</em>, this platform integrates <strong>PWA</strong> support for easy installation, offline functionality, and seamless sharing to grow the community.
-  </p>
+    function shareApp() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Tc Coin Blockchain',
+          text: 'Join the decentralized blockchain and earn Tc Coins!',
+          url: 'https://webswiftseo.github.io/tc-coin/'
+        });
+      } else {
+        alert("Sharing works best in Safari or Chrome browsers, not inside social network browsers.");
+      }
+    }
 
-  <h3>⚙️ Key Features</h3>
-  <ul>
-    <li>🎰 <strong>Spin the Wheel</strong> to earn Tc Coins instantly.</li>
-    <li>🏘️ <strong>Groups</strong>: Connect and collaborate in knowledge-driven networks.</li>
-    <li>📜 <strong>Feed</strong>: View transactions and community updates in real time.</li>
-    <li>❤️ <strong>Profile & Wallet</strong>: Manage your Tc balance, trust level, and personal info.</li>
-    <li>📲 <strong>PWA Install</strong>: Install directly to your device for offline use.</li>
-    <li>🚀 <strong>Share & Earn</strong>: Invite others and earn rewards for sharing.</li>
-    <li>🔐 <strong>Decentralized</strong>: Fully independent, no central authority. You control your data.</li>
-  </ul>
+    // You can keep your other scripts as they are
+  </script>
 
-  <h3>🌍 Explore the Troanary Ecosystem</h3>
-  <p>These platforms work together to create a better future for decentralized systems, computing, and global quality of life. Dive into the Troanary network:</p>
-
-  <ul>
-    <li>🪞 <strong>Troanary Computing Mirror Thesis</strong> <br>
-      <a href="https://webswiftseo.github.io/Troanary-Computing-Mirror-Thesis" target="_blank">https://webswiftseo.github.io/Troanary-Computing-Mirror-Thesis</a>
-    </li>
-    <li>📝 <strong>Troanary WordPress Blog</strong> <br>
-      <a href="https://troanary.wordpress.com/" target="_blank">https://troanary.wordpress.com/</a>
-    </li>
-    <li>💰 <strong>Tc Coin Blockchain App</strong> <br>
-      <a href="https://webswiftseo.github.io/tc-coin/" target="_blank">https://webswiftseo.github.io/tc-coin/</a>
-    </li>
-    <li>🧪 <strong>TroLab Experimental Hub</strong> <br>
-      <a href="https://webswiftseo.github.io/TroLab/" target="_blank">https://webswiftseo.github.io/TroLab/</a>
-    </li>
-    <li>🤝 <strong>Tc Sharing App</strong> <br>
-      <a href="https://webswiftseo.github.io/TC-Sharing-App/" target="_blank">https://webswiftseo.github.io/TC-Sharing-App/</a>
-    </li>
-    <li>⚖️ <strong>Gov Law Health Portal</strong> <br>
-      <a href="https://webswiftseo.github.io/GovLawHealth-Portal" target="_blank">https://webswiftseo.github.io/GovLawHealth-Portal</a>
-    </li>
-    <li>🌐 <strong>Global Quality of Life-O-Meter</strong> <br>
-      <a href="https://webswiftseo.github.io/Global-Quality-of-Life-Ometer" target="_blank">https://webswiftseo.github.io/Global-Quality-of-Life-Ometer</a>
-    </li>
-  </ul>
-
-  <h3>🚀 Get Started Today!</h3>
-  <p>
-    ✅ Spin and earn Tc Coins <br>
-    ✅ Grow your trust level and reputation <br>
-    ✅ Join the decentralized revolution and be part of the future of <strong>Troanary Computing</strong>!
-  </p>
-</div>
-
-        </div>
-    </div>
-
-    <script src="/tc-coin/app.js"></script>
+  <script src="/tc-coin/app.js"></script>
 </body>
 </html>
