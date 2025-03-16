@@ -3,247 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tc Coin Blockchain</title>
-  <meta name="description" content="Earn Tc Coins through time, trust, and sharing in a decentralized blockchain app." />
-
+  <title>Tc App</title>
+  <link rel="manifest" href="manifest.json" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #000; color: #fff; font-family: Arial, sans-serif; line-height: 1.6; }
-    header, footer {
-      background: #000;
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 2px solid #00ffff;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
     }
-    footer {
-      border-top: 2px solid #00ffff;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      z-index: 10;
-    }
-    h1, h2 { color: #ffd700; }
-    .tc-logo { color: #ffd700; font-weight: bold; }
-    .header-btn, .footer-btn, .btn, .nav-btn {
-      background: #ffd700;
-      border-radius: 16px;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      cursor: pointer;
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFD700;
       color: #000;
+      border-radius: 20px;
+      padding: 15px 30px;
+      margin: 10px 0;
+      font-size: 1.2rem;
       font-weight: bold;
-      margin: 0.5rem;
-      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: 250px;
     }
-    .header-btn:hover, .footer-btn:hover, .btn:hover, .nav-btn:hover {
-      background: #ffaa00; box-shadow: 0 0 10px #ffd700;
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7);
     }
-    main { padding: 2rem 1rem; margin-bottom: 10rem; }
-    section { max-width: 800px; margin: 0 auto; text-align: center; }
-    .nav-buttons, .profile-actions, .group-actions {
-      display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem 0;
+    .top-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
     }
-    .hidden { display: none; }
-    .troanary-wheel { margin: 2rem auto; }
     .wheel {
-      width: 200px; height: 200px;
-      background: conic-gradient(#00ffff, #ffd700, #00ffff);
-      border-radius: 50%; margin: 0 auto;
-      animation: spin 2s linear infinite paused;
+      width: 300px;
+      height: 300px;
+      margin: 20px 0;
+      border-radius: 50%;
+      background: conic-gradient(#00FFFF, #FFFF00, #00FFFF);
     }
-    .wheel.spinning { animation-play-state: running; }
-    @keyframes spin { 100% { transform: rotate(360deg); } }
-    input, textarea {
-      padding: 0.5rem; border-radius: 16px;
-      border: 1px solid #00ffff; background: #1a1a1a;
-      color: #fff; width: 100%; max-width: 300px;
+    .footer {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      background-color: #111;
+      padding: 10px 0;
+      border-top: 2px solid #0ff;
     }
-    #feedContent, #groupList, #leaderboard {
-      list-style: none; padding: 1rem; background: #1a1a1a;
-      border-radius: 16px; margin-top: 1rem;
+    .footer-button {
+      background-color: #FFD700;
+      color: #000;
+      border-radius: 15px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    #feedContent p, #groupList li, #leaderboard li {
-      padding: 0.5rem; border-bottom: 1px solid #00ffff;
+    .footer-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7);
     }
-    .qr-code {
-      margin: 1rem auto; width: 200px; height: 200px;
-      background: url('/tc-coin/images/qr-bg-tc-blockchain-300x300.webp') center/cover no-repeat;
-      display: flex; justify-content: center; align-items: center; border-radius: 16px;
-    }
-
-    #infoSection {
-      background: #111;
-      border-top: 2px solid #00ffff;
-      padding: 1rem;
-      display: none;
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    #infoSection h3 { color: #ffd700; margin-bottom: 0.5rem; }
-    #infoSection a { color: #00ffff; text-decoration: underline; }
-    #infoToggle { margin-top: 1rem; }
-    #backToTop {
-      color: #00ffff;
-      display: block;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      .nav-buttons, .profile-actions, .group-actions { flex-direction: column; }
-      .btn, .nav-btn { width: 100%; max-width: 300px; }
+    .coming-soon {
+      opacity: 0.5;
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1><span class="tc-logo">Tc</span> Coin Blockchain</h1>
-    <button class="header-btn" onclick="goHome()">🏠 Home</button>
-  </header>
 
-  <main>
-    <section id="landing">
-      <h2>Welcome to Tc Coin Blockchain</h2>
-      <p>Earn Tc Coins through time, trust, and sharing in a decentralized network.</p>
-      <div class="troanary-wheel">
-        <div id="wheel" class="wheel"></div>
-        <button class="btn spin-btn" onclick="spinWheel()">🎡 Spin for Tc</button>
-      </div>
-      <div class="nav-buttons">
-        <button class="nav-btn" onclick="showProfile()">❤️ Profile</button>
-        <button class="nav-btn" onclick="showFeed()">📜 Feed</button>
-        <button class="nav-btn" onclick="showGroups()">🏘️ Groups</button>
-      </div>
-    </section>
+  <!-- Install & Share Buttons -->
+  <div class="top-buttons">
+    <button class="button" onclick="installPWA()">📲 Install</button>
+    <button class="button" onclick="shareApp()">🚀 Share</button>
+  </div>
 
-    <section id="profileSection" class="hidden">
-      <h2>Profile & Wallet</h2>
-      <p><strong>Username:</strong> <span id="usernameDisplay">Set your username</span></p>
-      <input type="text" id="usernameInput" placeholder="Set your username" />
-      <button class="btn" onclick="setUsername()">💾 Save</button>
-      <p id="tcBalance">Tc Balance: 0</p>
-      <p id="trustLevel">Trust Level: 0</p>
-      <div class="profile-actions">
-        <button class="btn" onclick="sendTc()">🚀 Send Tc</button>
-        <button class="btn" onclick="receiveTc()">📥 Receive Tc</button>
-        <button class="btn" onclick="generateQR()">📷 QR Code</button>
-        <button class="btn" onclick="bluetoothSync()">📡 Bluetooth Sync</button>
-      </div>
-      <div class="qr-code" id="qrCode"></div>
-    </section>
+  <!-- Spin Wheel -->
+  <div class="wheel"></div>
 
-    <section id="feedSection" class="hidden">
-      <h2>Transaction Feed & Block Explorer</h2>
-      <div id="feedContent"></div>
-      <h3>Leaderboard (Trust Levels)</h3>
-      <ul id="leaderboard"></ul>
-    </section>
+  <!-- Main Buttons -->
+  <button class="button">🎰 Spin for Tc</button>
+  <button class="button">❤️ Profile</button>
+  <button class="button">📜 Feed</button>
+  <button class="button">🏘️ Groups</button>
+  <button class="button">ℹ️ Info</button>
 
-    <section id="groupsSection" class="hidden">
-      <h2>Groups & Connections</h2>
-      <div class="group-actions">
-        <input type="text" id="searchUser" placeholder="Search username..." />
-        <button class="btn" onclick="searchUser()">🔎 Search</button>
-      </div>
-      <ul id="groupList"></ul>
-      <textarea id="groupMessage" placeholder="Post a message..."></textarea>
-      <button class="btn" onclick="postMessage()">📝 Post</button>
-    </section>
-
-    <!-- Info Section Toggle Button -->
-    <button class="footer-btn" id="infoToggle" onclick="toggleInfo()">ℹ️ Info</button>
-
-    <!-- Info Section -->
-    <div id="infoSection">
-      <h3>About Tc Coin Blockchain</h3>
-      <p>
-        Tc Coin is a decentralized hybrid blockchain project built on Troanary principles.
-        Earn tokens by time, trust, and sharing. It's designed for transparency and decentralization.
-      </p>
-      <h3>How It Works</h3>
-      <p>
-        Tc Coins are distributed based on your interaction, trust level, and contributions.
-        Connect with others, form groups, and transact directly without centralized control.
-      </p>
-      <h3>GitHub Repo</h3>
-      <p>
-        View the source code and contribute on
-        <a href="https://github.com/WebSwiftSEO/tc-coin" target="_blank">GitHub Repo</a>.
-      </p>
-      <h3>FAQ</h3>
-      <ul style="text-align:left; margin: 0 auto; max-width: 600px;">
-        <li><strong>Q:</strong> How do I earn Tc Coins?<br><strong>A:</strong> Share, build trust, and engage.</li>
-        <li><strong>Q:</strong> Is this open source?<br><strong>A:</strong> Yes, check the GitHub repo.</li>
-        <li><strong>Q:</strong> Can I run a node?<br><strong>A:</strong> Node instructions coming soon!</li>
-      </ul>
-      <div id="backToTop" onclick="goHome()">🔝 Back to Top</div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <button class="footer-btn" onclick="goHome()">🏠 Home</button>
-      <button class="footer-btn" onclick="showProfile()">❤️ Profile</button>
-      <button class="footer-btn" onclick="showFeed()">📜 Feed</button>
-      <button class="footer-btn" onclick="showGroups()">🏘️ Groups</button>
-    </div>
-  </footer>
+  <!-- Floating Footer Menu -->
+  <div class="footer">
+    <div class="footer-button">🏡</div>
+    <div class="footer-button">❤️</div>
+    <div class="footer-button">📜</div>
+    <div class="footer-button">🏘️</div>
+    <div class="footer-button coming-soon">🔎</div>
+  </div>
 
   <script>
-    function hideAllSections() {
-      document.getElementById('landing').classList.add('hidden');
-      document.getElementById('profileSection').classList.add('hidden');
-      document.getElementById('feedSection').classList.add('hidden');
-      document.getElementById('groupsSection').classList.add('hidden');
+    let deferredPrompt;
+
+    // Detect install prompt
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    function installPWA() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(choiceResult => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          }
+          deferredPrompt = null;
+        });
+      } else {
+        alert('PWA install not available');
+      }
     }
 
-    function goHome() {
-      hideAllSections();
-      document.getElementById('landing').classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    function shareApp() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Tc App',
+          text: 'Check out this app!',
+          url: window.location.href
+        })
+        .then(() => console.log('Shared successfully'))
+        .catch((error) => console.log('Error sharing:', error));
+      } else {
+        alert('Sharing not supported on this device.');
+      }
     }
-
-    function showProfile() {
-      hideAllSections();
-      document.getElementById('profileSection').classList.remove('hidden');
-    }
-
-    function showFeed() {
-      hideAllSections();
-      document.getElementById('feedSection').classList.remove('hidden');
-    }
-
-    function showGroups() {
-      hideAllSections();
-      document.getElementById('groupsSection').classList.remove('hidden');
-    }
-
-    function toggleInfo() {
-      const infoSection = document.getElementById('infoSection');
-      infoSection.style.display = (infoSection.style.display === 'block') ? 'none' : 'block';
-      infoSection.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function spinWheel() {
-      const wheel = document.getElementById('wheel');
-      wheel.classList.add('spinning');
-      setTimeout(() => {
-        wheel.classList.remove('spinning');
-        alert('You earned +1 Tc!');
-      }, 2000);
-    }
-
-    // Placeholder Functions
-    function setUsername() { alert('Username saved!'); }
-    function sendTc() { alert('Send Tc not implemented!'); }
-    function receiveTc() { alert('Receive Tc not implemented!'); }
-    function generateQR() { alert('QR generated!'); }
-    function bluetoothSync() { alert('Bluetooth Sync not implemented!'); }
-    function searchUser() { alert('Search user!'); }
-    function postMessage() { alert('Message posted!'); }
   </script>
 </body>
 </html>
