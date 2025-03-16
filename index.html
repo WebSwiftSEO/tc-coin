@@ -5,41 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tc Coin Blockchain</title>
   <meta name="description" content="Earn Tc Coins through time, trust, and sharing in a decentralized blockchain app." />
-  
-  <!-- Embedded CSS -->
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
+    body { background: #000; color: #fff; font-family: Arial, sans-serif; line-height: 1.6; }
     header, footer {
       background: #000;
       padding: 1rem;
       text-align: center;
       border-bottom: 2px solid #00ffff;
     }
-
     footer {
       border-top: 2px solid #00ffff;
       position: fixed;
       bottom: 0;
       width: 100%;
+      z-index: 10;
     }
-
-    h1, h2 {
-      color: #ffd700;
-    }
-
-    .tc-logo {
-      color: #ffd700;
-      font-weight: bold;
-    }
-
+    h1, h2 { color: #ffd700; }
+    .tc-logo { color: #ffd700; font-weight: bold; }
     .header-btn, .footer-btn, .btn, .nav-btn {
       background: #ffd700;
       border-radius: 16px;
@@ -51,99 +35,65 @@
       margin: 0.5rem;
       transition: all 0.3s ease;
     }
-
     .header-btn:hover, .footer-btn:hover, .btn:hover, .nav-btn:hover {
-      background: #ffaa00;
-      box-shadow: 0 0 10px #ffd700;
+      background: #ffaa00; box-shadow: 0 0 10px #ffd700;
     }
-
-    main {
-      padding: 2rem 1rem;
-      margin-bottom: 5rem; /* space for footer */
-    }
-
-    section {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
+    main { padding: 2rem 1rem; margin-bottom: 10rem; }
+    section { max-width: 800px; margin: 0 auto; text-align: center; }
     .nav-buttons, .profile-actions, .group-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1rem 0;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin: 1rem 0;
     }
-
-    .hidden {
-      display: none;
-    }
-
-    .troanary-wheel {
-      margin: 2rem auto;
-    }
-
+    .hidden { display: none; }
+    .troanary-wheel { margin: 2rem auto; }
     .wheel {
-      width: 200px;
-      height: 200px;
+      width: 200px; height: 200px;
       background: conic-gradient(#00ffff, #ffd700, #00ffff);
-      border-radius: 50%;
-      margin: 0 auto;
+      border-radius: 50%; margin: 0 auto;
       animation: spin 2s linear infinite paused;
     }
-
-    .wheel.spinning {
-      animation-play-state: running;
-    }
-
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-
+    .wheel.spinning { animation-play-state: running; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
     input, textarea {
-      padding: 0.5rem;
-      border-radius: 16px;
-      border: 1px solid #00ffff;
-      background: #1a1a1a;
-      color: #fff;
-      width: 100%;
-      max-width: 300px;
+      padding: 0.5rem; border-radius: 16px;
+      border: 1px solid #00ffff; background: #1a1a1a;
+      color: #fff; width: 100%; max-width: 300px;
     }
-
     #feedContent, #groupList, #leaderboard {
-      list-style: none;
-      padding: 1rem;
-      background: #1a1a1a;
-      border-radius: 16px;
-      margin-top: 1rem;
+      list-style: none; padding: 1rem; background: #1a1a1a;
+      border-radius: 16px; margin-top: 1rem;
     }
-
     #feedContent p, #groupList li, #leaderboard li {
-      padding: 0.5rem;
-      border-bottom: 1px solid #00ffff;
+      padding: 0.5rem; border-bottom: 1px solid #00ffff;
+    }
+    .qr-code {
+      margin: 1rem auto; width: 200px; height: 200px;
+      background: url('/tc-coin/images/qr-bg-tc-blockchain-300x300.webp') center/cover no-repeat;
+      display: flex; justify-content: center; align-items: center; border-radius: 16px;
     }
 
-    .qr-code {
-      margin: 1rem auto;
-      width: 200px;
-      height: 200px;
-      background: url('/tc-coin/images/qr-bg-tc-blockchain-300x300.webp') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 16px;
+    #infoSection {
+      background: #111;
+      border-top: 2px solid #00ffff;
+      padding: 1rem;
+      display: none;
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #infoSection h3 { color: #ffd700; margin-bottom: 0.5rem; }
+    #infoSection a { color: #00ffff; text-decoration: underline; }
+    #infoToggle { margin-top: 1rem; }
+    #backToTop {
+      color: #00ffff;
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
     }
 
     @media (max-width: 600px) {
-      .nav-buttons, .profile-actions, .group-actions {
-        flex-direction: column;
-      }
-
-      .btn, .nav-btn {
-        width: 100%;
-        max-width: 300px;
-      }
+      .nav-buttons, .profile-actions, .group-actions { flex-direction: column; }
+      .btn, .nav-btn { width: 100%; max-width: 300px; }
     }
   </style>
 </head>
@@ -155,7 +105,7 @@
   </header>
 
   <main>
-    <section id="landing" class="">
+    <section id="landing">
       <h2>Welcome to Tc Coin Blockchain</h2>
       <p>Earn Tc Coins through time, trust, and sharing in a decentralized network.</p>
       <div class="troanary-wheel">
@@ -202,6 +152,35 @@
       <textarea id="groupMessage" placeholder="Post a message..."></textarea>
       <button class="btn" onclick="postMessage()">📝 Post</button>
     </section>
+
+    <!-- Info Section Toggle Button -->
+    <button class="footer-btn" id="infoToggle" onclick="toggleInfo()">ℹ️ Info</button>
+
+    <!-- Info Section -->
+    <div id="infoSection">
+      <h3>About Tc Coin Blockchain</h3>
+      <p>
+        Tc Coin is a decentralized hybrid blockchain project built on Troanary principles.
+        Earn tokens by time, trust, and sharing. It's designed for transparency and decentralization.
+      </p>
+      <h3>How It Works</h3>
+      <p>
+        Tc Coins are distributed based on your interaction, trust level, and contributions.
+        Connect with others, form groups, and transact directly without centralized control.
+      </p>
+      <h3>GitHub Repo</h3>
+      <p>
+        View the source code and contribute on
+        <a href="https://github.com/WebSwiftSEO/tc-coin" target="_blank">GitHub Repo</a>.
+      </p>
+      <h3>FAQ</h3>
+      <ul style="text-align:left; margin: 0 auto; max-width: 600px;">
+        <li><strong>Q:</strong> How do I earn Tc Coins?<br><strong>A:</strong> Share, build trust, and engage.</li>
+        <li><strong>Q:</strong> Is this open source?<br><strong>A:</strong> Yes, check the GitHub repo.</li>
+        <li><strong>Q:</strong> Can I run a node?<br><strong>A:</strong> Node instructions coming soon!</li>
+      </ul>
+      <div id="backToTop" onclick="goHome()">🔝 Back to Top</div>
+    </div>
   </main>
 
   <footer>
@@ -214,7 +193,6 @@
   </footer>
 
   <script>
-    // Navigation
     function hideAllSections() {
       document.getElementById('landing').classList.add('hidden');
       document.getElementById('profileSection').classList.add('hidden');
@@ -225,6 +203,7 @@
     function goHome() {
       hideAllSections();
       document.getElementById('landing').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function showProfile() {
@@ -242,7 +221,12 @@
       document.getElementById('groupsSection').classList.remove('hidden');
     }
 
-    // Spin Wheel (Demo)
+    function toggleInfo() {
+      const infoSection = document.getElementById('infoSection');
+      infoSection.style.display = (infoSection.style.display === 'block') ? 'none' : 'block';
+      infoSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
     function spinWheel() {
       const wheel = document.getElementById('wheel');
       wheel.classList.add('spinning');
@@ -260,7 +244,6 @@
     function bluetoothSync() { alert('Bluetooth Sync not implemented!'); }
     function searchUser() { alert('Search user!'); }
     function postMessage() { alert('Message posted!'); }
-    function shareApp() { alert('Shared app link!'); }
   </script>
 </body>
 </html>
