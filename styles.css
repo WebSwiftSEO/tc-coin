@@ -213,4 +213,33 @@ footer {
         width: 100%;
         max-width: 300px;
     }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; color: #fff; font-family: Arial, sans-serif; line-height: 1.6; }
+header { background: #000; padding: 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #00ffff; }
+.tc-logo { color: #ffd700; font-weight: bold; }
+.header-btn, .footer-btn { background: #00ffff; border-radius: 16px; padding: 0.5rem 1rem; border: none; cursor: pointer; color: #000; font-weight: bold; }
+.header-btn:hover, .footer-btn:hover { background: #00cccc; box-shadow: 0 0 10px #00ffff; transition: all 0.3s ease; }
+main { padding: 2rem 1rem; }
+.landing, .profile, .feed, .groups { max-width: 800px; margin: 0 auto; text-align: center; }
+.hidden { display: none; }
+h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #ffd700; }
+p { margin-bottom: 1rem; }
+.nav-buttons, .profile-actions, .group-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.nav-btn, .btn { background: #ffd700; border-radius: 16px; padding: 0.8rem 1.5rem; border: none; cursor: pointer; color: #000; font-weight: bold; }
+.nav-btn:hover, .btn:hover { background: #ffaa00; box-shadow: 0 0 10px #ffd700; transition: all 0.3s ease; }
+.troanary-wheel { margin: 2rem 0; }
+.wheel { width: 200px; height: 200px; background: conic-gradient(#00ffff, #ffd700, #00ffff); border-radius: 50%; margin: 0 auto; animation: spin 2s linear infinite paused; }
+.wheel.spinning { animation-play-state: running; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.spin-btn { margin-top: 1rem; }
+#usernameInput, #searchUser, #groupMessage { padding: 0.5rem; border-radius: 16px; border: 1px solid #00ffff; background: #1a1a1a; color: #fff; width: 100%; max-width: 300px; }
+#groupMessage { resize: vertical; min-height: 100px; }
+#feedContent, #groupList, #leaderboard { list-style: none; padding: 1rem; background: #1a1a1a; border-radius: 16px; margin-top: 1rem; }
+#feedContent p, #groupList li, #leaderboard li { padding: 0.5rem; border-bottom: 1px solid #00ffff; }
+.qr-code { margin: 1rem auto; width: 200px; height: 200px; background: url('/Tc-Coin-Blockchain/images/qr-bg-tc-blockchain-300x300.webp') center/cover; display: flex; justify-content: center; align-items: center; border-radius: 16px; }
+footer { background: #000; padding: 1rem; text-align: center; border-top: 2px solid #00ffff; }
+.footer-content { max-width: 800px; margin: 0 auto; }
+@media (max-width: 600px) {
+    .nav-buttons, .profile-actions, .group-actions { flex-direction: column; }
+    .btn, .nav-btn { width: 100%; max-width: 300px; }
 }
