@@ -1,9 +1,9 @@
 const cacheName = 'tc-coin-v1';
 const assets = [
-    '/Tc-Coin-Blockchain/',
-    '/Tc-Coin-Blockchain/index.html',
-    '/Tc-Coin-Blockchain/images/coin-tc-blockchain-512x512.webp',
-    '/Tc-Coin-Blockchain/images/qr-bg-tc-blockchain-300x300.webp'
+    '/Tc-Coin/',
+    '/Tc-Coin/index.html',
+    '/Tc-Coin/images/coin-tc-blockchain-512x512.webp',
+    '/Tc-Coin/images/qr-bg-tc-blockchain-300x300.webp'
 ];
 self.addEventListener('install', e => {
     e.waitUntil(caches.open(cacheName).then(cache => cache.addAll(assets)));
