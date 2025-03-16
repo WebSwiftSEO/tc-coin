@@ -6,7 +6,7 @@
     "background_color": "#000",
     "theme_color": "#00ffff",
     "icons": [
-        { "src": "/Tc-Coin-Blockchain/images/coin.webp", "sizes": "192x192", "type": "image/webp" },
-        { "src": "/Tc-Coin-Blockchain/images/coin.webp", "sizes": "512x512", "type": "image/webp" }
+        { "src": "/Tc-Coin-Blockchain/images/coin-tc-blockchain-192x192.webp", "sizes": "192x192", "type": "image/webp" },
+        { "src": "/Tc-Coin-Blockchain/images/coin-tc-blockchain-512x512.webp", "sizes": "512x512", "type": "image/webp" }
     ]
 }
