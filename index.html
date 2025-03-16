@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tc App</title>
+  <title>Tc Coin App</title>
   <link rel="manifest" href="manifest.json" />
   <style>
     body {
@@ -80,6 +80,38 @@
     .coming-soon {
       opacity: 0.5;
     }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .modal-content {
+      background-color: #111;
+      color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border: 2px solid #FFD700;
+      border-radius: 20px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .close {
+      color: #FFD700;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #ff0;
+    }
   </style>
 </head>
 <body>
@@ -98,11 +130,10 @@
   <button class="button">❤️ Profile</button>
   <button class="button">📜 Feed</button>
   <button class="button">🏘️ Groups</button>
-  <button class="button">ℹ️ Info</button>
+  <button class="button" onclick="showInfoModal()">ℹ️ Info</button>
 
-  <!-- Add padding below the last button -->
+  <!-- Padding to allow scroll -->
   <div style="height: 100px;"></div>
-
 
   <!-- Floating Footer Menu -->
   <div class="footer">
@@ -113,10 +144,50 @@
     <div class="footer-button coming-soon">🔎</div>
   </div>
 
+  <!-- Info Modal -->
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeInfoModal()">&times;</span>
+      <h2>Welcome to the Tc Coin App</h2>
+      <p>
+        The Tc Coin App is a decentralized prototype designed for users to spin and earn Tc tokens, engage with groups, and participate in a knowledge-driven network. 
+        This platform integrates PWA support for installation directly on your device, along with sharing options to spread the app. 
+        Coming soon: advanced search, direct link sharing, and dynamic content updates.
+      </p>
+    </div>
+    <div style="text-align: center; max-width: 800px; margin: 0 auto; padding: 20px;">
+  <p style="font-size: 1.2rem;">
+    Explore the growing network of Troanary and Mirror Thesis projects. Each platform contributes to a unified vision of advanced computing, decentralized systems, and improving global quality of life. Click below to visit each site and dive deeper into the future of information, technology, and human potential.
+  </p>
+
+  <h2 style="color: orange;">Troanary Computing Mirror Thesis</h2>
+  <p><a href="https://webswiftseo.github.io/Troanary-Computing-Mirror-Thesis" style="color: orange;">https://webswiftseo.github.io/Troanary-Computing-Mirror-Thesis</a></p>
+
+  <h2 style="color: orange;">Troanary WordPress Blog</h2>
+  <p><a href="https://troanary.wordpress.com/" style="color: orange;">https://troanary.wordpress.com/</a></p>
+
+  <h2 style="color: orange;">Tc Coin Blockchain</h2>
+  <p><a href="https://webswiftseo.github.io/tc-coin/" style="color: orange;">https://webswiftseo.github.io/tc-coin/</a></p>
+
+  <h2 style="color: orange;">TroLab</h2>
+  <p><a href="https://webswiftseo.github.io/TroLab/" style="color: orange;">https://webswiftseo.github.io/TroLab/</a></p>
+
+  <h2 style="color: orange;">Tc Sharing App</h2>
+  <p><a href="https://webswiftseo.github.io/TC-Sharing-App/" style="color: orange;">https://webswiftseo.github.io/TC-Sharing-App/</a></p>
+
+  <h2 style="color: orange;">Gov Law Health Portal</h2>
+  <p><a href="https://webswiftseo.github.io/GovLawHealth-Portal" style="color: orange;">https://webswiftseo.github.io/GovLawHealth-Portal</a></p>
+
+  <h2 style="color: orange;">Global Quality of Life-O-Meter</h2>
+  <p><a href="https://webswiftseo.github.io/Global-Quality-of-Life-Ometer" style="color: orange;">https://webswiftseo.github.io/Global-Quality-of-Life-Ometer</a></p>
+</div>
+
+  </div>
+
   <script>
     let deferredPrompt;
 
-    // Detect install prompt
+    // Install PWA
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
@@ -136,11 +207,12 @@
       }
     }
 
+    // Share App
     function shareApp() {
       if (navigator.share) {
         navigator.share({
-          title: 'Tc App',
-          text: 'Check out this app!',
+          title: 'Tc Coin App',
+          text: 'Check out the Tc Coin App!',
           url: window.location.href
         })
         .then(() => console.log('Shared successfully'))
@@ -149,6 +221,24 @@
         alert('Sharing not supported on this device.');
       }
     }
+
+    // Info Modal Functions
+    function showInfoModal() {
+      document.getElementById('infoModal').style.display = 'block';
+    }
+
+    function closeInfoModal() {
+      document.getElementById('infoModal').style.display = 'none';
+    }
+
+    // Close modal if clicking outside content
+    window.onclick = function(event) {
+      const modal = document.getElementById('infoModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
   </script>
+
 </body>
 </html>
